@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bloqueo Survivor: videojuego satírico boliviano creado con HTML, CSS y Canvas 2D.">
+  <title>DESBLOQUEA Y GANA | Sátira boliviana</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="aplicacion">
+    <header class="barra-superior">
+      <section class="marca" aria-label="Presentación del juego">
+        
+        <section>
+          <p class="texto-superior">VIDEOJUEGO DE HUMOR POLÍTICO</p>
+          <h1>Desbloquea y <span>Gana</span></h1>
+        </section>
+      </section>
+    </header>
+
+    <section class="marco-juego" aria-label="Área del videojuego">
+      <section class="panel-estado" aria-label="Estado de la partida">
+        <section class="dato-estado">
+          <span class="etiqueta-estado">PUNTOS</span>
+          <strong id="puntos">0000</strong>
+        </section>
+<section class="dato-estado">
+          <span class="etiqueta-estado">VIDAS</span>
+          <strong id="vidas">♥ ♥ ♥</strong>
+        </section>
+        <section class="dato-estado">
+          <span class="etiqueta-estado">BARRICADAS</span>
+          <strong id="barricadas">0 / 8</strong>
+        </section>
+        <section class="dato-estado">
+          <span class="etiqueta-estado">TIEMPO</span>
+          <strong id="tiempo">60</strong>
+        </section>
+      </section>
+
+      <section class="zona-juego">
+        <canvas id="lienzoJuego" width="960" height="600" aria-label="Juego visto desde arriba"></canvas>
+
+        <section id="pantallaAviso" class="pantalla-aviso">
+          <article class="tarjeta-aviso">
+            <p class="texto-superior" id="avisoSuperior">EDICIÓN BOLIVIA</p>
+            <h2 id="tituloAviso">¡Desbloquea la ruta!</h2>
+            <p id="textoAviso">Una ciudad ficticia quedó atrapada en un bloqueo. Abre paso rompiendo las barricadas y esquiva a los personajes para liberar la carretera.</p>
+
+            <ul class="instrucciones">
+              <li><kbd>W A S D</kbd> <span>o flechas: moverte</span></li>
+              <li><kbd>ESPACIO</kbd> <span>lanzar una piedra a la barricada que tienes delante</span></li>
+              <li><kbd>P</kbd> <span>pausar o continuar</span></li>
+            </ul>
+
+            <button id="botonPrincipalJuego" class="boton-principal">Iniciar partida</button>
+            
+          </article>
+        </section>
+
+        <p id="avisoPausaJuego" class="aviso-pausa" hidden>PAUSA · Pulsa P para continuar</p>
+      </section>
+
+      <footer class="pie-juego">
+        <p>Objetivo: rompe 8 barricadas antes de que termine el tiempo.</p>
+        <nav class="acciones-pie" aria-label="Acciones de la partida">
+          <button id="botonPausa" class="boton-secundario" disabled>Pausar</button>
+          <button id="botonReiniciar" class="boton-secundario">Reiniciar</button>
+        </nav>
+      </footer>
+    </section>
+  </main>
+
+  <nav class="controles-tactiles" aria-label="Controles táctiles">
+    <section class="cruceta" aria-label="Movimiento">
+      <button data-key="ArrowUp" aria-label="Mover arriba">▲</button>
+      <section>
+        <button data-key="ArrowLeft" aria-label="Mover izquierda">◀</button>
+        <button data-key="ArrowDown" aria-label="Mover abajo">▼</button>
+        <button data-key="ArrowRight" aria-label="Mover derecha">▶</button>
+      </section>
+    </section>
+    <button id="botonLanzarTactil" class="boton-lanzar">LANZAR<br>PIEDRA</button>
+  </nav>
+
+  <script src="js/codigo.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+/* Estilos sencillos para el juego Desbloquea y Gana */
+:root {
+  --fondo: #0f2418;
+  --texto: #f4f7ff;
+  --texto-secundario: #aab6d0;
+  --amarillo: #ffc857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--texto);
+  background: #0f2418;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.aplicacion {
+  width: 95%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 26px 0 20px;
+}
+
+.barra-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.texto-superior {
+  margin: 0 0 5px;
+  color: var(--amarillo);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: var(--amarillo);
+}
+
+.marco-juego {
+  overflow: hidden;
+  border: 1px solid #4b7f63;
+  border-radius: 18px;
+  background: #102f25;
+  box-shadow: 0 12px 30px #0005;
+}
+
+.panel-estado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #2b5a50;
+  border-bottom: 1px solid #314e3e;
+}
+
+.dato-estado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 18px;
+  background: #225d46;
+}
+
+.etiqueta-estado {
+  color: var(--texto-secundario);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.dato-estado strong {
+  color: #fff;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+#vidas {
+  color: #ff7984;
+  letter-spacing: 1px;
+}
+
+.zona-juego {
+  position: relative;
+  background: #336657;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pantalla-aviso {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: #081b15dd;
+}
+
+.pantalla-aviso[hidden] {
+  display: none;
+}
+
+.tarjeta-aviso {
+  width: 100%;
+  max-width: 490px;
+  padding: 28px;
+  border: 1px solid #538574;
+  border-radius: 16px;
+  background: #113025;
+  box-shadow: 0 12px 35px #0007;
+}
+
+.tarjeta-aviso h2 {
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.tarjeta-aviso > p:not(.texto-superior):not(.nota-pequena) {
+  color: #c5cee0;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.instrucciones {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.instrucciones li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d9e1f2;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+kbd {
+  min-width: 92px;
+  padding: 7px 9px;
+  border: 1px solid #536585;
+  border-radius: 7px;
+  background: #204646;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.boton-principal,
+.boton-secundario,
+.boton-lanzar {
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.boton-principal {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--amarillo);
+  color: #20170a;
+  box-shadow: 0 4px 0 #bc8422;
+}
+
+.boton-principal:hover,
+.boton-secundario:hover,
+.boton-lanzar:hover {
+  filter: brightness(1.08);
+}
+
+.aviso-pausa {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  padding: 9px 14px;
+  border: 1px solid #ffffff40;
+  border-radius: 20px;
+  background: #10192b;
+  font-size: 12px;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.pie-juego {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  color: var(--texto-secundario);
+  font-size: 13px;
+}
+
+.pie-juego p {
+  margin: 0;
+}
+
+.acciones-pie {
+  display: flex;
+  gap: 8px;
+}
+
+.boton-secundario {
+  padding: 9px 13px;
+  border: 1px solid #405170;
+  background: #1b2942;
+  color: #eef3ff;
+  font-size: 12px;
+}
+
+.boton-secundario:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.controles-tactiles {
+  display: none;
+}
+
+/* Adaptación para celulares y pantallas pequeñas */
+@media (max-width: 700px) {
+  .aplicacion {
+    width: 96%;
+    padding-top: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .panel-estado {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dato-estado {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 9px 8px;
+  }
+
+  .etiqueta-estado {
+    font-size: 9px;
+  }
+
+  .dato-estado strong {
+    font-size: 14px;
+  }
+
+  .pantalla-aviso {
+    padding: 9px;
+  }
+
+  .tarjeta-aviso {
+    max-height: 95%;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  .tarjeta-aviso h2 {
+    font-size: 25px;
+  }
+
+  .tarjeta-aviso > p:not(.texto-superior):not(.nota-pequena) {
+    margin: 6px 0;
+    font-size: 12px;
+  }
+
+  .instrucciones {
+    gap: 6px;
+    margin: 10px 0;
+  }
+
+  .instrucciones li {
+    gap: 7px;
+    font-size: 11px;
+  }
+
+  kbd {
+    min-width: 76px;
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .pie-juego {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px;
+    font-size: 11px;
+  }
+
+  .controles-tactiles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 95%;
+    max-width: 500px;
+    margin: 14px auto 0;
+  }
+
+  .cruceta {
+    display: grid;
+    justify-items: center;
+    gap: 5px;
+  }
+
+  .cruceta > section {
+    display: flex;
+    gap: 5px;
+  }
+
+  .cruceta button {
+    width: 43px;
+    height: 39px;
+    border: 1px solid #405170;
+    border-radius: 9px;
+    background: #1a2942;
+    color: white;
+    touch-action: none;
+  }
+
+  .boton-lanzar {
+    min-width: 112px;
+    padding: 14px;
+    background: var(--amarillo);
+    color: #20170a;
+    line-height: 1.35;
+    touch-action: none;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .tarjeta-aviso {
+    padding: 12px;
+  }
+
+  .instrucciones li {
+    font-size: 10px;
+  }
+}
